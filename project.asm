@@ -106,9 +106,17 @@
     pinop_msg2 db 'Account NOT created ... $'  
     
     ; Group Info
-    group_name db 'By CastOut...$' ,
-    group_msg db 'Team members$' ,
-    group_members db 'Md. Sakawat, Md. Zonaid, Md. Arnob$' 
+    group_name db 'By CastOut...$'
+    group_msg3 db '-------------$'  
+    group_msg  db 'Team members$'
+    group_msg2 db '_____________$'
+    group_member1 db 'Md. Shakhawat$'
+    group_member1s db '203-15-14513$'
+    group_member2 db 'Md. Zonaid$'
+    group_member2s db '203-15-3927$'
+    group_member3 db 'Arnob Dey$'
+    group_member3s db '203-15-3906$'
+    
     
 
 .code
@@ -139,57 +147,6 @@ checkAccountCreated proc
        
 checkAccountCreated endp
 
-;just mov number to ax and call this proc
-printNumber PROC                  
-    ;initilize count 
-    mov cx,0 
-    mov dx,0 
-    label1: 
-        ; if ax is zero 
-        cmp ax,0 
-        je print1       
-          
-        ;initilize bx to 10 
-        mov bx,10         
-          
-        ; extract the last digit 
-        div bx                   
-          
-        ;push it in the stack 
-        push dx               
-          
-        ;increment the count 
-        inc cx               
-          
-        ;set dx to 0  
-        xor dx,dx 
-        jmp label1
-         
-    print1: 
-        ;check if count  
-        ;is greater than zero 
-        cmp cx,0 
-        je exitprint
-          
-        ;pop the top of stack 
-        pop dx 
-          
-        ;add 48 so that it  
-        ;represents the ASCII 
-        ;value of digits 
-        add dx,48 
-          
-        ;interuppt to print a 
-        ;character 
-        mov ah,02h 
-        int 21h 
-          
-        ;decrease the count 
-        dec cx 
-        jmp print1 
-exitprint: 
-ret 
-printNumber ENDP
 
 clearScreen proc near
     call newLine
@@ -504,6 +461,61 @@ op3 proc
   ret  
 
 op3 endp                                                        
+        
+        
+
+;just mov number to ax and call this proc
+printNumber PROC                  
+    ;initilize count 
+    mov cx,0 
+    mov dx,0 
+    label1: 
+        ; if ax is zero 
+        cmp ax,0 
+        je print1       
+          
+        ;initilize bx to 10 
+        mov bx,10         
+          
+        ; extract the last digit 
+        div bx                   
+          
+        ;push it in the stack 
+        push dx               
+          
+        ;increment the count 
+        inc cx               
+          
+        ;set dx to 0  
+        xor dx,dx 
+        jmp label1
+         
+    print1: 
+        ;check if count  
+        ;is greater than zero 
+        cmp cx,0 
+        je exitprint
+          
+        ;pop the top of stack 
+        pop dx 
+          
+        ;add 48 so that it  
+        ;represents the ASCII 
+        ;value of digits 
+        add dx,48 
+          
+        ;interuppt to print a 
+        ;character 
+        mov ah,02h 
+        int 21h 
+          
+        ;decrease the count 
+        dec cx 
+        jmp print1 
+exitprint: 
+ret 
+printNumber ENDP
+
 
 proc etcop4
    call newLine
@@ -727,13 +739,31 @@ op7 proc
 
   
   printString group_name
-  call newLine
+  call newLine          
   printString group_msg
+  call newLine           
+  printString group_msg3 
+  printString group_msg2 
+  printString group_msg3  
+  call newLine            
+  call newLine             
+  printString group_member1
   call newLine
-  printString group_members
+  printString group_member1s
   call newLine
+  printString group_member2
   call newLine
-  call newLine   
+  printString group_member2s
+  call newLine
+  printString group_member3
+  call newLine
+  printString group_member3s
+  call newLine
+  printString group_msg3 
+  printString group_msg2 
+  printString group_msg3 
+  call newLine     
+  call newLine  
   
   call etcop5 
   
