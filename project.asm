@@ -101,7 +101,8 @@
     
     ;PIN Protection
     pinop_msg1 db 'Enter PIN: $' 
-    pinop_msg2 db 'Account NOT created ... $'
+    pinop_msg2 db 'Account NOT created ... $'  
+    group_name db 'By CastOut...$'
 
 .code
 
@@ -255,7 +256,9 @@ DisplayMenu proc near
     printString dmsg5
     call newLine
     printString dmsg6
-    call newLine     
+    call newLine  
+    printString group_name
+    call newLine   
     
     call newLine 
     printString opmsg1
