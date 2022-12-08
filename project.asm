@@ -54,7 +54,9 @@
     opmsg3 db '3. Withdraw Money $'
     opmsg4 db '4. Deposit Money $'
     opmsg5 db '5. Reset Account $'
-    opmsg6 db '6. Modify Account Details$'
+    opmsg6 db '6. Modify Account Details$' 
+    opmsg7 db '7. Developers Info$' 
+    
     
     opmsg8 db 'Press Enter To Return to Main Menu $'
     
@@ -102,7 +104,11 @@
     ;PIN Protection
     pinop_msg1 db 'Enter PIN: $' 
     pinop_msg2 db 'Account NOT created ... $'  
-    group_name db 'By CastOut...$'
+    
+    ; Group Info
+    group_name db 'By CastOut...$' ,
+    group_msg db 'Team members$' ,
+    group_members db 'Md. Sakawat, Md. Zonaid, Md. Arnob$'
 
 .code
 
@@ -272,7 +278,10 @@ DisplayMenu proc near
     printString opmsg5
     call newLine
     printString opmsg6
-    call newLine    
+    call newLine 
+    
+    printString opmsg7
+    call newLine   
     ret        
 DisplayMenu endp       
 
@@ -745,7 +754,35 @@ op6 proc
   
   
   ret  
-op6 endp
+op6 endp 
+
+
+
+
+
+op7 proc  
+  
+  call clearScreen
+
+  
+  printString group_name
+  call newLine
+  printString group_msg
+  call newLine
+  printString group_members
+  call newLine
+  call newLine
+  call newLine   
+  
+  call etcop5 
+  
+
+  
+
+  
+  
+  ret  
+op7 endp
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
 ;                                                                   ;
@@ -783,7 +820,12 @@ Main proc
         je op1  
         
         cmp inputCode,'5'   
-        je op5
+        je op5  
+        
+        cmp inputCode,'7'   
+        je op7 
+        
+        
         
         jmp mainloop
                        
