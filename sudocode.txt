@@ -1,0 +1,71 @@
+First Bank Info will be shown
+choose option 1 - 7 with different action printed with string
+taking input from user
+
+if user choose 1
+    then Acount creation label will be called
+else if user choose 2:
+    then User will get info about his account
+else if user choose 3:
+    then Withdraw of money option will be called
+else if choose 4:
+    then depose money optin will be called
+else if choose 5:
+    Reset accoutn option will be called
+else if choose 6:
+    Modify acount will be called
+else if choose 7:
+    develper info level will be called
+else:
+    user will be exited from programe
+
+
+### Create Account Option sudocode
+First User Info will be taken from the user
+Enter Acount name: for name
+Enter Account Pic: for pic number
+Then this data will be saved in Data segment of acc_info
+
+
+### Print Account Details
+if pin is correct:
+    Just print the All the stored info about Info from the Data segment
+else:
+    print error message
+    and also give another change
+
+### Withdraw Money
+It will take a input from the user , how much money he/she watnt to Withdraw
+
+if amount > current_balance:
+    User can't with amount
+else:
+    user can withdraw money
+    and current_balance will be reduced current_balance = current_balance - current_balance
+
+
+### Deopiste Money
+It will take a input from the user , how much money he/she watnt to deposite
+
+this amount of money will be increase in main balance of user
+current_balance = current_balance + balance
+
+
+### Reset Account
+if pin is valid:
+    user can rest his acc
+
+### Modify Account Details
+First validation wil be performed
+
+if user is authenticated with pin:
+    he can change his pin and name
+
+### Develper Info
+In this label just print
+all the info stored in data segment about develpers
+
+
+
+
+
